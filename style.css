@@ -1,74 +1,130 @@
 /*
 Theme Name: Havana Moon
-Theme URI: http://underscores.me/
+Theme URI: http://designsimply.com/wordpress/theme/havana-moon/
 Author: Sheri Bigelow
 Author URI: http://designsimply.com/
 Description: Havana Moon is a media-focused WordPress theme.
 Version: 1.0-wpcom
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GNU General Public License v3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: havana-moon
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
 
- Havana Moon is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
-
-Resetting and rebuilding styles have been helped along thanks to the fine work of
-Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
-along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
-and Blueprint http://www.blueprintcss.org/
+Havana Moon is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
 */
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-1.0 - Reset
-2.0 - Typography
-3.0 - Elements
+1.0 - Typography
+2.0 - Color
+3.0 - Layout
 4.0 - Forms
 5.0 - Navigation
-	5.1 - Links
-	5.2 - Menus
 6.0 - Accessibility
-7.0 - Alignments
-8.0 - Clearings
+7.0 - Alignment
+8.0 - Elements
 9.0 - Widgets
 10.0 - Content
-	10.1 - Posts and pages
-	10.2 - Asides
-	10.3 - Comments
 11.0 - Infinite scroll
 12.0 - Media
-	12.1 - Captions
-	12.2 - Galleries
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-1.0 - Reset
+1.0 Typography
 --------------------------------------------------------------*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	border: 0;
-	font-family: inherit;
-	font-size: 100%;
-	font-style: inherit;
-	font-weight: inherit;
-	margin: 0;
-	outline: 0;
-	padding: 0;
-	vertical-align: baseline;
+body {
+	font-family: Ubuntu, sans-serif;
+	font-size: 14px;
+	font-size: 1.4rem;
+	font-weight: 300;
+	line-height: 1.6;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.site-title {
+	line-height: 1em;
+	padding: .25em 0 .1em;
+}
+
+.site-description,
+.site-footer {
+	font-weight: 300;
+	font-size: .77em;
+	line-height: 1.2em;
+	opacity: .4;
+}
+
+.entry-title {
+	font-weight: 400;
+}
+
+.entry-content a {
+	text-decoration: underline;
+}
+
+small {
+	font-size: 67%;
+}
+
+big {
+	font-size: 133%;
+}
+
+/*--------------------------------------------------------------
+2.0 - Color
+--------------------------------------------------------------*/
+body {
+	color: hsl(188, 20%, 20%);
+}
+
+a {
+	color: hsl(200, 80%, 33%);
+}
+
+a:visited {
+	color: hsl(200, 80%, 44%);
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: hsl(225, 73%, 30%);
+	color: hsl(200, 80%, 67%);
+}
+
+.site-title a,
+.site-title a:visited {
+	color: hsl(188, 10%, 10%)
+}
+
+.main-navigation ul ul {
+	background: hsla(0, 0%, 100%, .95);
+}
+
+pre {
+       background: rgba(234,239,242,0.25);
+       border-left: 6px solid rgba(241,78,50,0.65);
+}
+pre.highlight {
+       background: rgba(255, 203, 0, 0.1);
+       border-left: 6px solid rgba(255,203,0,0.5);
+}
+
+
+/*--------------------------------------------------------------
+3.0 Layout
+--------------------------------------------------------------*/
 html {
-	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
 	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
 	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
@@ -82,221 +138,27 @@ html {
 	box-sizing:         border-box;
 }
 
-body {
-	background: #fff; /* Fallback for when there is no custom background color defined. */
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-main,
-nav,
-section {
+#page > header,
+.hentry .entry-header .entry-title,
+.hentry .entry-header .entry-meta,
+.hentry .entry-content,
+.hentry .entry-footer,
+.site-main .navigation,
+#comments,
+#secondary,
+#page > footer {
 	display: block;
+	margin: 0 auto;
+	max-width: 960px;
 }
 
-ol,
-ul {
-	list-style: none;
+.main-navigation > div > ul {
+	margin: 1em 0;
 }
 
-table { /* tables still need 'cellspacing="0"' in the markup */
-	border-collapse: separate;
-	border-spacing: 0;
-}
-
-caption,
-th,
-td {
-	font-weight: normal;
-	text-align: left;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-	content: "";
-}
-
-blockquote,
-q {
-	quotes: "" "";
-}
-
-a:focus {
-	outline: thin dotted;
-}
-
-a:hover,
-a:active {
-	outline: 0;
-}
-
-a img {
-	border: 0;
-}
-
-/*--------------------------------------------------------------
-2.0 Typography
---------------------------------------------------------------*/
-body,
-button,
-input,
-select,
-textarea {
-	color: #404040;
-	font-family: sans-serif;
-	font-size: 16px;
-	font-size: 1.6rem;
-	line-height: 1.5;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	clear: both;
-}
-
-p {
-	margin-bottom: 1.5em;
-}
-
-b,
-strong {
-	font-weight: bold;
-}
-
-dfn,
-cite,
-em,
-i {
-	font-style: italic;
-}
-
-blockquote {
-	margin: 0 1.5em;
-}
-
-address {
-	margin: 0 0 1.5em;
-}
-
-pre {
-	background: #eee;
-	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-size: 15px;
-	font-size: 1.5rem;
-	line-height: 1.6;
-	margin-bottom: 1.6em;
-	max-width: 100%;
-	overflow: auto;
-	padding: 1.6em;
-}
-
-code,
-kbd,
-tt,
-var {
-	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-}
-
-abbr,
-acronym {
-	border-bottom: 1px dotted #666;
-	cursor: help;
-}
-
-mark,
-ins {
-	background: #fff9c0;
-	text-decoration: none;
-}
-
-sup,
-sub {
-	font-size: 75%;
-	height: 0;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
-}
-
-sup {
-	bottom: 1ex;
-}
-
-sub {
-	top: .5ex;
-}
-
-small {
-	font-size: 75%;
-}
-
-big {
-	font-size: 125%;
-}
-
-/*--------------------------------------------------------------
-3.0 Elements
---------------------------------------------------------------*/
-hr {
-	background-color: #ccc;
-	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
-}
-
-ul,
-ol {
-	margin: 0 0 1.5em 3em;
-}
-
-ul {
-	list-style: disc;
-}
-
-ol {
-	list-style: decimal;
-}
-
-li > ul,
-li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
-}
-
-dt {
-	font-weight: bold;
-}
-
-dd {
-	margin: 0 1.5em 1.5em;
-}
-
-img {
-	height: auto; /* Make sure images are scaled correctly. */
-	max-width: 100%; /* Adhere to container width. */
-}
-
-figure {
-	margin: 0;
-}
-
-table {
-	margin: 0 0 1.5em;
-	width: 100%;
-}
-
-th {
-	font-weight: bold;
+.main-navigation li {
+	line-height: 1;
+	padding-bottom: .5em;
 }
 
 /*--------------------------------------------------------------
@@ -411,23 +273,6 @@ textarea {
 5.0 Navigation
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-5.1 Links
---------------------------------------------------------------*/
-a {
-	color: royalblue;
-}
-
-a:visited {
-	color: purple;
-}
-
-a:hover,
-a:focus,
-a:active {
-	color: midnightblue;
-}
-
-/*--------------------------------------------------------------
 5.2 Menus
 --------------------------------------------------------------*/
 .main-navigation {
@@ -450,6 +295,7 @@ a:active {
 
 .main-navigation a {
 	display: block;
+	padding-right: 1em;
 	text-decoration: none;
 }
 
@@ -459,7 +305,7 @@ a:active {
 	position: absolute;
 	top: 1.5em;
 	left: -999em;
-	z-index: 99999;
+	z-index: 9;
 }
 
 .main-navigation ul ul ul {
@@ -515,7 +361,6 @@ a:active {
 .site-main .comment-navigation,
 .site-main .paging-navigation,
 .site-main .post-navigation {
-	margin: 0 0 1.5em;
 	overflow: hidden;
 }
 
@@ -568,7 +413,7 @@ a:active {
 }
 
 /*--------------------------------------------------------------
-7.0 Alignments
+7.0 Alignment
 --------------------------------------------------------------*/
 .alignleft {
 	display: inline;
@@ -589,8 +434,72 @@ a:active {
 }
 
 /*--------------------------------------------------------------
-8.0 Clearings
+8.0 Elements
 --------------------------------------------------------------*/
+pre {
+	max-width: 100%;
+	padding: 1em;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #ffc;
+	text-decoration: none;
+}
+
+pre {
+	overflow: auto;
+}
+
+hr {
+	background-color: #777;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+ul,
+ol {
+	margin: 1em 0;
+}
+
+ul {
+	list-style: disc;
+}
+
+li > ul,
+li > ol {
+	margin: 0;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1em 1em;
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+figure {
+	margin: 0;
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
 .clear:before,
 .clear:after,
 .entry-content:before,
